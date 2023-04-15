@@ -3,30 +3,31 @@ using UnityEngine;
 public class PV_CityDetails : MonoBehaviour
 {
     public CanvasGroup canvasGroup;
-    public SpriteRenderer spRender;
 
-    [Range(1,10)]
-    public int pointsConstruction = 1;
-    [Range(1, 10)]
-    public int pointsSocial = 1;
-    [Range(1, 10)]
-    public int pointsEnviromental = 1;
-    [Range(1, 10)]
-    public int pointsProduction = 1;
+    public PV_CityDetailsNormal normalDetails;
+    public PV_CityDetailsEvent eventDetails;
 
-    [Space(10)]
-    public PV_CityDetailsArea areaConstruction;
-    public PV_CityDetailsArea areaSocial;
-    public PV_CityDetailsArea areaEnviromental;
-    public PV_CityDetailsArea areaProduction;
-
-    public void ShowCityUpgradeOptions()
+    public void ShowNormalDetails()
     {
-        areaConstruction.SetAreaState(pointsConstruction);
-        areaSocial.SetAreaState(pointsSocial);
-        areaEnviromental.SetAreaState(pointsEnviromental);
-        areaProduction.SetAreaState(pointsProduction);
+        normalDetails.gameObject.SetActive(true);
+        eventDetails.gameObject.SetActive(false);
     }
-    public void EnableInteractable() => canvasGroup.interactable = true;
-    public void DisableInteractable() => canvasGroup.interactable = false;
+    public void ShowEventDetails()
+    {
+        normalDetails.gameObject.SetActive(false);
+        eventDetails.gameObject.SetActive(true);
+    }
+
+    public void MakeVisible() => canvasGroup.alpha = 1;
+    public void MakeInvisible() => canvasGroup.alpha = 0;
+    public void EnableInteractable()
+    {
+        canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
+    }
+    public void DisableInteractable()
+    {
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
+    }
 }

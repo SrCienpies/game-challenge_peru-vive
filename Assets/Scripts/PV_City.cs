@@ -10,6 +10,7 @@ public class PV_City : MonoBehaviour
     [Header("Initial State")]
     [Range(1,10)]
     public int initialState = 1;
+    public SNormal data;
 
     [Space(10)]
     public Sprite iconStateGreen;
@@ -99,6 +100,6 @@ public class PV_City : MonoBehaviour
             return;
         }
 
-        controller.ShowCityUpgradeOptions();
+        controller.ShowCityUpgradeOptions(data);
     }
 }

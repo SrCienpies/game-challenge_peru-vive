@@ -8,9 +8,18 @@ public class PV_CityDetailsArea : MonoBehaviour
     public Color colorYellow;
     public Color colorRed;
 
+    public Button button;
     public Image statusColor;
     public Text statusIndicator;
 
+    public delegate void Click();
+    public Click OnClick;
+
+
+    private void Awake()
+    {
+        button.onClick.AddListener(OnClick.Invoke);
+    }
     public void SetAreaState(int state)
     {
         statusIndicator.text = state.ToString();

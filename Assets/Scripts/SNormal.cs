@@ -5,8 +5,13 @@ using UnityEngine;
 [CreateAssetMenu]
 public class SNormal : ScriptableObject
 {
-   
-    public List<Area> area_dec = new List<Area>();
+    public string cityName;
+    public Sprite cityBackground;
+    [Space(10)]
+    public List<Initiative> planificaicon = new List<Initiative>();
+    public List<Initiative> social = new List<Initiative>();
+    public List<Initiative> medioAmbiente = new List<Initiative>();
+    public List<Initiative> economia = new List<Initiative>();
 }
 
 [System.Serializable]

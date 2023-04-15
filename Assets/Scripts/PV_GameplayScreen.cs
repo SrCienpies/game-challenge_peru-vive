@@ -35,8 +35,11 @@ public class PV_GameplayScreen : MonoBehaviour
 
     private void Start()
     {
-        cityMap.gameObject.SetActive(true);
-        cityDetails.gameObject.SetActive(false);
+        cityMap.MakeVisible();
+        cityDetails.MakeInvisible();
+
+        cityMap.EnableInteractable();
+        cityDetails.DisableInteractable();
 
         StartCoroutine("PassTheDays");
     }
@@ -129,24 +132,37 @@ public class PV_GameplayScreen : MonoBehaviour
     {
 
     }
-    public void ShowCityEventOptions()
+    public async void ShowCityEventOptions()
     {
 
     }
-    public async void ShowCityUpgradeOptions()
+    public async void ShowCityUpgradeOptions(SNormal data)
     {
         pauseDays = true;
         cityMap.DisableInteractable();
+
         await TransitionIn().AsyncWaitForCompletion();
 
-        cityMap.gameObject.SetActive(false);
-        cityDetails.gameObject.SetActive(true);
+        cityMap.MakeInvisible();
+        cityDetails.MakeVisible();
+        cityDetails.ShowNormalDetails();
         cityDetails.DisableInteractable();
 
         await TransitionOut().AsyncWaitForCompletion();
 
         cityDetails.EnableInteractable();
-        cityDetails.ShowCityUpgradeOptions();
+        cityDetails.normalDetails.ShowCityUpgradeOptions(data);
+    }
+    public async void BackToMapFromCityUpgrade()
+    {
+        cityDetails.DisableInteractable();
+        await TransitionIn().AsyncWaitForCompletion();
+        cityDetails.MakeInvisible();
+        cityMap.MakeVisible();
+        cityMap.DisableInteractable();
+        await TransitionOut().AsyncWaitForCompletion();
+        cityMap.EnableInteractable();
+        pauseDays = false;
     }
 
     #endregion
