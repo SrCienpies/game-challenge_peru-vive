@@ -13,6 +13,7 @@ public class Ini_obj_main : MonoBehaviour
     public TextMeshProUGUI main_num;
     public TextMeshProUGUI main_nom;
     public Image main_decor;
+    public Image main_lugar;
 
     public Image character_img;
     public Image character_dialog;
@@ -27,10 +28,10 @@ public class Ini_obj_main : MonoBehaviour
 
     public void def_area(int area)
     {
-        if (main.area_point_obj[area].puntos == 0 || main_obj.area[area].area_num == 1)
+        if (main.area_point_obj[area].puntos == 0 )
         {
-
-
+            actual_num.estado_actual = 1;
+            
 
         }
         else
@@ -59,6 +60,8 @@ public class Ini_obj_main : MonoBehaviour
                     break;
             }
 
+
+
             main_ico.sprite = character_p.icon;
             main_obj = main.lug_actual.lug;
 
@@ -67,6 +70,7 @@ public class Ini_obj_main : MonoBehaviour
             int num_final = area_main.area_num;
 
             obj = main.main.calc_ico_col(num_final);
+
             main_num_ico.color = obj.col_main;
             main_num.text = num_final.ToString();
             main_nom.text = area_main.nom;

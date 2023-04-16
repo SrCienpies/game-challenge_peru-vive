@@ -9,27 +9,38 @@ public class Main_Data:MonoBehaviour
     public Ini_main inic_main;
     public Lugar_mng lug_actual;
     public Actual_situation act_actual;
-
+    public Choice_main choice_main;
     public List<Area_points> area_point_obj = new List<Area_points>();
+
+    public List<Lugar_mng> lugares_obj = new List<Lugar_mng>();
 
     private void Start()
     {
         inic_main.allobj.SetActive(false);
         inic_main.ini_obj.all.SetActive(false);
+        choice_main.all.SetActive(false);
     }
 
     public void sendinfo(GameObject obj)
     {
-        if(act_actual.estado_actual==0)
+        Lugar_main lug;
+        lug = obj.GetComponent<Lugar_mng>().lug;
+        lug_actual = obj.GetComponent<Lugar_mng>();
+
+        switch (act_actual.estado_actual)
         {
-            inic_main.allobj.SetActive(true);
+            case 0:
+                inic_main.allobj.SetActive(true);
+                inic_main.sendinfo(lug);
+                break;
 
-            Lugar_main lug;
-            lug = obj.GetComponent<Lugar_mng>().lug;
-            lug_actual = obj.GetComponent<Lugar_mng>();
+            case 1:
+                choice_main.lug = lug;
+                choice_main.select_lug();
+                break;
+        }
 
-            inic_main.sendinfo(lug);
-        }        
+
     }
 
     public void closeini()
@@ -37,6 +48,10 @@ public class Main_Data:MonoBehaviour
         inic_main.allobj.SetActive(false);
 
     }
+
+
+
+
 
     public void check_puntos()
     {
@@ -46,6 +61,26 @@ public class Main_Data:MonoBehaviour
             act_actual.change();
         }
     }
+
+    public void check_lugares()
+    {
+        lugares_obj.Clear();
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("Player");
+
+        for (int i = 0; i < objs.Length; i++)
+        {
+            Lugar_mng mng_obj;
+            mng_obj = objs[i].GetComponent<Lugar_mng>();
+
+            if(mng_obj.lug.main_num>3)
+            {
+                lugares_obj.Add(mng_obj);
+            }
+        }
+
+
+    }
+
 
 }
 

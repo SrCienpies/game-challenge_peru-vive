@@ -68,12 +68,15 @@ public class choice
     public string choice_name;
     public string choice_desc;
     public bool choice_aceptar_true;
+    public int cantidad;
 }
 
 [System.Serializable]
 
 public class SO_Initiatives2
 {
+    public bool completed;
+    public int impacto;
     public List<initiative> init = new List<initiative>();
     public List<choice> choice_obj = new List<choice>();
 }
