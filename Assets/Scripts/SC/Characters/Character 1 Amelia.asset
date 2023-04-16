@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1984cb257d0ca8f40a6d7088cdc51053, type: 3}
+  m_Name: Character 1 Amelia
+  m_EditorClassIdentifier: 
+  character: {fileID: 21300000, guid: 55deb92e03bb4394caec02e42828c858, type: 3}
+  color: {r: 0.9490196, g: 0.20784314, b: 0.6901961, a: 1}
+  icon: {fileID: 21300000, guid: 36bd655e21adf6847921f2625f548a92, type: 3}
+  characterName: Amelia
+  characterMessage: "\xA1Reconstruiremos este lugar, paso a paso, un plan a la vez!"
+  characterDialog: {fileID: 21300000, guid: 8bcdac0daf1f5844ca71de112a0cbace, type: 3}
