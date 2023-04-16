@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61cb88853302b81449b9bb320027d6e2, type: 3}
-  m_Name: New S Normal
+  m_Name: Moche
   m_EditorClassIdentifier: 
   cityName: Pucusana
   cityBackground: {fileID: 21300000, guid: c93eddf129999f2479c44dbd7771084c, type: 3}
@@ -20,37 +20,37 @@ MonoBehaviour:
     levelnum: 0
   - Nombre: Titulo 2
     Desc: Descripcion 2
-    levelnum: 0
+    levelnum: 1
   - Nombre: Titulo 3
     Desc: Descripcion 3
-    levelnum: 0
+    levelnum: 2
   social:
   - Nombre: Titulo 1
     Desc: Descripcion 1
     levelnum: 0
-  - Nombre: Titulo 1
-    Desc: Descripcion 1
-    levelnum: 0
-  - Nombre: Titulo 1
-    Desc: Descripcion 1
-    levelnum: 0
+  - Nombre: Titulo 2
+    Desc: Descripcion 2
+    levelnum: 1
+  - Nombre: Titulo 3
+    Desc: Descripcion 3
+    levelnum: 2
   medioAmbiente:
-  - Nombre: 
-    Desc: 
+  - Nombre: Titulo 1
+    Desc: Descripcion 1
     levelnum: 0
-  - Nombre: 
-    Desc: 
-    levelnum: 0
-  - Nombre: 
-    Desc: 
-    levelnum: 0
+  - Nombre: Titulo 2
+    Desc: Descripcion 2
+    levelnum: 1
+  - Nombre: Titulo 3
+    Desc: Descripcion 3
+    levelnum: 2
   economia:
-  - Nombre: 
-    Desc: 
+  - Nombre: Titulo 1
+    Desc: Descripcion 1
     levelnum: 0
-  - Nombre: 
-    Desc: 
-    levelnum: 0
-  - Nombre: 
-    Desc: 
-    levelnum: 0
+  - Nombre: Titulo 2
+    Desc: Descripcion 2
+    levelnum: 1
+  - Nombre: Titulo 3
+    Desc: Descripcion 3
+    levelnum: 2

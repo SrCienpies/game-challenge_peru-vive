@@ -23,7 +23,6 @@ public class PV_InitiativeOption : MonoBehaviour
     {
         button.onClick.AddListener(() => OnClick?.Invoke());
     }
-
     public void SetOptionData(Initiative data, Area.Areaname areaName)
     {
         switch (areaName)
@@ -32,13 +31,13 @@ public class PV_InitiativeOption : MonoBehaviour
                 background.sprite = colorPlanificacion;
                 break;
             case Area.Areaname.Social:
-                background.sprite = colorPlanificacion;
+                background.sprite = colorSocial;
                 break;
             case Area.Areaname.MedioAmbiente:
-                background.sprite = colorPlanificacion;
+                background.sprite = colorMedioAmbiente;
                 break;
             case Area.Areaname.Economia:
-                background.sprite = colorPlanificacion;
+                background.sprite = colorEconomia;
                 break;
             default:
                 background.sprite = colorPlanificacion;

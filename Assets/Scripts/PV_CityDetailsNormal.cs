@@ -1,13 +1,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class PV_CityDetailsNormal : MonoBehaviour
 {
+    public PV_CityDetails controller;
+
     public Image background;
+    public Image transition;
     public Text cityName;
 
-    [Range(1, 10)]
+    [Header("General State")]
+    public Image stateBackground;
+    public Text state;
+
+    public Color colorGreen;
+    public Color colorYellow;
+    public Color colorRed;
+
+    [Range(1, 20)]
     public int pointsConstruction = 1;
     [Range(1, 10)]
     public int pointsSocial = 1;
@@ -28,6 +40,10 @@ public class PV_CityDetailsNormal : MonoBehaviour
 
     public void ShowCityUpgradeOptions(SNormal data)
     {
+        GetComponent<CanvasGroup>().interactable = true;
+
+        SetGeneralState();
+
         background.sprite = data.cityBackground;
         cityName.text = data.cityName;
 
@@ -43,11 +59,64 @@ public class PV_CityDetailsNormal : MonoBehaviour
 
         initiativesScreen.gameObject.SetActive(false);
     }
+    public void SetGeneralState()
+    {
+        int generalState = (pointsConstruction + pointsSocial + pointsEnviromental + pointsProduction) / 4;
+
+        if (generalState <= 3)
+        {
+            stateBackground.color = colorGreen;
+        }
+        else if (generalState <= 6)
+        {
+            stateBackground.color = colorYellow;
+        }
+        else
+        {
+            stateBackground.color = colorRed;
+        }
+
+        this.state.text = generalState.ToString();
+    }
 
     public void ShowOptions(List<Initiative> initiatives, Area.Areaname areaName, int state)
     {
+        initiativesScreen.cityDetailsNormal = this;
         initiativesScreen.gameObject.SetActive(true);
         initiativesScreen.SetOptionsData(initiatives, areaName, state);
+    }
+    public void UpdateState(int areaState, Area.Areaname areaName)
+    {
+        switch (areaName)
+        {
+            case Area.Areaname.Planificacion:
+                pointsConstruction = areaState;
+                areaConstruction.SetAreaState(pointsConstruction);
+                break;
+            case Area.Areaname.Social:
+                pointsSocial = areaState;
+                areaSocial.SetAreaState(pointsSocial);
+                break;
+            case Area.Areaname.MedioAmbiente:
+                pointsEnviromental = areaState;
+                areaEnviromental.SetAreaState(pointsEnviromental);
+                break;
+            case Area.Areaname.Economia:
+                pointsProduction = areaState;
+                areaProduction.SetAreaState(pointsProduction);
+                break;
+        }
+
+        SetGeneralState();
+        initiativesScreen.gameObject.SetActive(false);
+
+        GetComponent<CanvasGroup>().interactable = false;
+
+        Invoke("UpgradeCompleted", 1);
+    }
+    public async void UpgradeCompleted()
+    {
+        
     }
 
 

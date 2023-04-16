@@ -53,12 +53,11 @@ public class PV_GameplayScreen : MonoBehaviour
 
         while (true)
         {
-            while (pauseDays)
-            {
-                yield return null;
-            }
+            while (pauseDays) yield return null;
 
             yield return new WaitForSeconds(passDayRate);
+
+            while (pauseDays) yield return null;
 
             calendarPages[1].MakeVisible();
             calendarPages[1].RestartPosition();
@@ -66,6 +65,8 @@ public class PV_GameplayScreen : MonoBehaviour
             calendarPages[1].SetDay(currentDay + 1);
 
             yield return new WaitForSeconds(1f);
+
+            while (pauseDays) yield return null;
 
             calendarPages[0].DropPage();
 
