@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class PV_CityDetailsArea : MonoBehaviour
 {
+    public int state;
+    [Space(10)]
     public Color colorGreen;
     public Color colorYellow;
     public Color colorRed;
@@ -18,7 +20,7 @@ public class PV_CityDetailsArea : MonoBehaviour
 
     private void Awake()
     {
-        button.onClick.AddListener(OnClick.Invoke);
+        button.onClick.AddListener(()=> OnClick?.Invoke());
     }
     public void SetAreaState(int state)
     {

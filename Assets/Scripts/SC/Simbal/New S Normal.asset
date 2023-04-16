@@ -15,27 +15,24 @@ MonoBehaviour:
   cityName: Pucusana
   cityBackground: {fileID: 21300000, guid: c93eddf129999f2479c44dbd7771084c, type: 3}
   planificaicon:
-  - Nombre: 
-    Desc: 
+  - Nombre: Titulo 1
+    Desc: Descripcion 1
     levelnum: 0
-  - Nombre: 
-    Desc: 
+  - Nombre: Titulo 2
+    Desc: Descripcion 2
     levelnum: 0
-  - Nombre: 
-    Desc: 
-    levelnum: 0
-  - Nombre: 
-    Desc: 
+  - Nombre: Titulo 3
+    Desc: Descripcion 3
     levelnum: 0
   social:
-  - Nombre: 
-    Desc: 
+  - Nombre: Titulo 1
+    Desc: Descripcion 1
     levelnum: 0
-  - Nombre: 
-    Desc: 
+  - Nombre: Titulo 1
+    Desc: Descripcion 1
     levelnum: 0
-  - Nombre: 
-    Desc: 
+  - Nombre: Titulo 1
+    Desc: Descripcion 1
     levelnum: 0
   medioAmbiente:
   - Nombre: 

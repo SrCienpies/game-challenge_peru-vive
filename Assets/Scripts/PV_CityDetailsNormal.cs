@@ -23,7 +23,7 @@ public class PV_CityDetailsNormal : MonoBehaviour
     public PV_CityDetailsArea areaProduction;
 
     [Header("Options")]
-    public Image opaque;
+    public PV_CityOptionsScreen initiativesScreen;
 
 
     public void ShowCityUpgradeOptions(SNormal data)
@@ -35,11 +35,19 @@ public class PV_CityDetailsNormal : MonoBehaviour
         areaSocial.SetAreaState(pointsSocial);
         areaEnviromental.SetAreaState(pointsEnviromental);
         areaProduction.SetAreaState(pointsProduction);
+
+        areaConstruction.OnClick = () => ShowOptions(data.planificaicon, Area.Areaname.Planificacion, pointsConstruction);
+        areaSocial.OnClick = () => ShowOptions(data.social, Area.Areaname.Social, pointsSocial);
+        areaEnviromental.OnClick = () => ShowOptions(data.medioAmbiente, Area.Areaname.MedioAmbiente, pointsEnviromental);
+        areaProduction.OnClick = () => ShowOptions(data.economia, Area.Areaname.Economia, pointsProduction);
+
+        initiativesScreen.gameObject.SetActive(false);
     }
 
-    public void ShowOptions(List<Initiative> initiatives)
+    public void ShowOptions(List<Initiative> initiatives, Area.Areaname areaName, int state)
     {
-
+        initiativesScreen.gameObject.SetActive(true);
+        initiativesScreen.SetOptionsData(initiatives, areaName, state);
     }
 
 
